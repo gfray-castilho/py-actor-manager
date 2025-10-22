@@ -28,7 +28,7 @@ class ActorManager:
         self.cursor.execute(usql, (new_first_name, new_last_name, pk))
         self.conn.commit()
 
-    def delete(self, id):
+    def delete(self, pk):
         dsql = f"DELETE FROM {self.table_name} WHERE id=?"
-        self.cursor.execute(dsql, (id,))
+        self.cursor.execute(dsql, (pk,))
         self.conn.commit()
