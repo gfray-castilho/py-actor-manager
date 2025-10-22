@@ -1,5 +1,5 @@
 import sqlite3
-from optparse import Values
+
 
 from app.models import Actor
 class ActorManager:
