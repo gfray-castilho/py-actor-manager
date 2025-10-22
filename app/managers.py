@@ -15,8 +15,8 @@ class ActorManager:
         self.conn.commit()
 
     def all(self):
-        a = f"SELECT * FROM {self.table_name}"
-        self.cursor.execute(a)
+        asql = f"SELECT * FROM {self.table_name}"
+        self.cursor.execute(asql)
         self.rows = self.cursor.fetchall()
         actors = []
         for row in self.rows:
@@ -24,11 +24,11 @@ class ActorManager:
         return actors
 
     def update(self, pk, new_first_name, new_last_name):
-        u = f"UPDATE {self.table_name} SET first_name=?, last_name=? WHERE id=?"
-        self.cursor.execute(u, (new_first_name, new_last_name, pk))
+        usql = f"UPDATE {self.table_name} SET first_name=?, last_name=? WHERE id=?"
+        self.cursor.execute(usql, (new_first_name, new_last_name, pk))
         self.conn.commit()
 
     def delete(self, id):
-        d = f"DELETE FROM {self.table_name} WHERE id=?"
-        self.cursor.execute(d, (id,))
+        dsql = f"DELETE FROM {self.table_name} WHERE id=?"
+        self.cursor.execute(dsql, (id,))
         self.conn.commit()
